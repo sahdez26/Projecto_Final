@@ -5,17 +5,21 @@
  */
 package proyectofinalclienteservidor;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Saul Hernandez
  */
-public class Proveedores {
+public class Proveedores implements Interfaz {
 
     protected String nombreProveedor;
     protected String tipoProducto;
     protected boolean transporte;
+
+    static List<Proveedores> listaProveedores = new ArrayList();
 
     public Proveedores(String nombreProveedor, String tipoProducto, boolean transporte) {
         this.nombreProveedor = nombreProveedor;
@@ -26,17 +30,69 @@ public class Proveedores {
     public Proveedores() {
     }
 
+    @Override
     public void agregar() {
-        JOptionPane.showMessageDialog(null, "Esto es agregar prov"
-                + "revisar!");
+
+        try {
+            nombreProveedor = JOptionPane.showInputDialog(null,
+                    "Digite el nombre del Proveedor");
+
+            tipoProducto = JOptionPane.showInputDialog(null,
+                    "Digite el tipo de producto que entrega");
+
+            String evaluar = JOptionPane.showInputDialog(null,
+                    "Digite: \n"
+                    + "'1' si es ofrece transporte\n"
+                    + "'0' si no es ofrece transporte");
+
+            if (evaluar.equals("1")) {
+                transporte = true;
+            } else {
+                transporte = false;
+            }
+
+            listaProveedores.add(new Proveedores(nombreProveedor, tipoProducto, transporte));
+
+            JOptionPane.showMessageDialog(null, "Datos guardados exitosamente");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Dato no valido, favor digitar bien los valores");
+            System.out.println(e);
+        }
+
     }
 
+    @Override
     public void consultar() {
-        JOptionPane.showMessageDialog(null, "Esto es consult prov"
-                + "revisar!");
+
+        try {
+
+            String nombre = JOptionPane.showInputDialog(null,
+                    "Digite el nombre del proveedor",
+                    "Consultar", -1);
+
+            for (Proveedores proveedores : listaProveedores) {
+                if (proveedores.getNombreProveedor().equals(nombre)) {
+                    JOptionPane.showMessageDialog(null,
+                            "Datos del Proveedor: \n\n"
+                            + "Nombre: " + proveedores.getNombreProveedor()
+                            + "\nProducto que provee: " + proveedores.getTipoProducto()
+                            + "\nCuenta con transporte: " + proveedores.isTransporte(),
+                            "Informacion del Cliente",
+                            -1);
+                } else {
+                    JOptionPane.showMessageDialog(null,
+                            "Este proveedor no está en el sistema",
+                            "Consultar", -1);
+
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Dato no valido, favor digitar bien los valores");
+            System.out.println(e);
+        }
+
     }
-    
-    
 
     public String getNombreProveedor() {
         return nombreProveedor;

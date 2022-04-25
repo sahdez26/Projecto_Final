@@ -5,16 +5,20 @@
  */
 package proyectofinalclienteservidor;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Saul Hernandez
  */
-public class Comprador extends Persona {
+public class Comprador extends Persona implements Interfaz {
 
     protected String clienteID;
     protected boolean compradorFrecuente;
+    
+    static List<Comprador> listaComprador = new ArrayList();
 
     public Comprador(String cedula, String nombre, String apellido1, String apellido2, String clienteID, boolean compradorFrecuente) {
         super(cedula, nombre, apellido1, apellido2);
@@ -25,20 +29,89 @@ public class Comprador extends Persona {
     public Comprador() {
     }
 
-    
     @Override
-        public void agregar(){
-        JOptionPane.showMessageDialog(null, "Esto es agregar comprador"
-                            + "revisar!");
-        
+    public void agregar() {
+
+        try {
+            cedula = JOptionPane.showInputDialog(null,
+                    "Digite el numero de cedula del cliente");
+
+            nombre = JOptionPane.showInputDialog(null,
+                    "Digite el nombre del cliente");
+
+            apellido1 = JOptionPane.showInputDialog(null,
+                    "Digite el primer apellido del cliente");
+
+            apellido2 = JOptionPane.showInputDialog(null,
+                    "Digite el segundo apellido del cliente");
+
+            clienteID = JOptionPane.showInputDialog(null,
+                    "Digite un usuario para asignar al cliente");
+
+
+            String evaluar = JOptionPane.showInputDialog(null,
+                    "Digite: \n"
+                    + "'1' si es cliente frecuente\n"
+                    + "'0' si no es cliente frecuente");
+
+            if (evaluar.equals("1")) {
+                compradorFrecuente = true;
+            } else {
+                compradorFrecuente = false;
+            }
+
+
+            listaComprador.add(new Comprador(cedula, nombre, apellido1, apellido2,
+                    clienteID, compradorFrecuente));
+
+           JOptionPane.showMessageDialog(null, "Datos guardados exitosamente");
+           
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Dato no valido, favor digitar bien los valores");
+            System.out.println(e);
         }
+
+    }
+    
+    
+
     @Override
-    public void consultar(){
-            JOptionPane.showMessageDialog(null, "Esto es consultar cliente"
-                            );}
-    
-    
-    
+    public void consultar() {
+        
+        try {
+            
+            String cedula = JOptionPane.showInputDialog(null,
+                            "Digite el numero de cedula del cliente",
+                            "Consultar", -1);
+            
+            for (Comprador comprador : listaComprador) {
+                if (comprador.getCedula().equals(cedula)) {
+                    JOptionPane.showMessageDialog(null,
+                            "Datos del Cliente: \n\n" 
+                            + "Cedula: " + comprador.getCedula()
+                            + "\nNombre: " + comprador.getNombre()
+                            + "\nPrimer Apellido: " + comprador.getApellido1()
+                            + "\nSegundo Apellido: " + comprador.getApellido2()
+                            + "\nUsuario del Cliente: " + comprador.getClienteID()
+                            + "\nCliente Frecuente: " + comprador.isCompradorFrecuente(),
+                            
+                            "Informacion del Cliente",
+                            -1);
+                } else {
+                    JOptionPane.showMessageDialog(null,
+                            "Este cliente no existe",
+                            "Consultar", -1);
+                    
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Dato no valido, favor digitar bien los valores");
+            System.out.println(e);
+        }
+        
+    }
+
     public String getClienteID() {
         return clienteID;
     }

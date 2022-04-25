@@ -29,7 +29,6 @@ public abstract class Persona {
     public Persona(){}
     
     
-    public void agregar(){}
-    public void consultar(){}
+
     
 }
