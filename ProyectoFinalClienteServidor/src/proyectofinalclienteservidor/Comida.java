@@ -9,6 +9,22 @@ package proyectofinalclienteservidor;
  *
  * @author Saul Hernandez
  */
-public class Comida {
+public abstract class Comida {
+
+    protected int precio;
+    protected String nombre;
+    protected String cantidadDisponible;
+
+    public Comida(int precio, String nombre, String cantidadDisponible) {
+        this.precio = precio;
+        this.nombre = nombre;
+        this.cantidadDisponible = cantidadDisponible;
+    }
+
+
+    public Comida() {
+    }
+
+    
     
 }

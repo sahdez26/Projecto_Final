@@ -1,51 +1,34 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package proyectofinalclienteservidor;
 
+import java.util.*;
 import javax.swing.JOptionPane;
 
-public class Persona {
+/**
+ *
+ * @author Saul Hernandez
+ */
+public abstract class Persona {
 
-    private String id;
-    private String nombre;
-    private String apellidos;
-    private String eCivil;
+    protected String cedula;
+    protected String nombre;
+    protected String apellido1;
+    protected String apellido2;
 
-    public Persona(String id, String nombre, String apellidos, String eCivil) {
-        this.id = id;
+    public Persona(String cedula, String nombre, String apellido1, String apellido2) {
+        this.cedula = cedula;
         this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.eCivil = eCivil;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public String geteCivil() {
-        return eCivil;
-    }
-
-    public void seteCivil(String eCivil) {
-        this.eCivil = eCivil;
-    }
-
-    public void CambioECivil(String newCivil) {
-
-        this.eCivil = newCivil;
-         JOptionPane.showMessageDialog(
-                        null,
-                        "El nuevo estado civil de esta persona es: " + this.eCivil,
-                        "Tarea",
-                        -1);
-        
+    public Persona(){}
     
-    }
+    
 
+    
 }
