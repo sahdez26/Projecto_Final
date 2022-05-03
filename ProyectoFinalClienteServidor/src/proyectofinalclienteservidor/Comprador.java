@@ -20,6 +20,10 @@ public class Comprador extends Persona implements Interfaz {
     
     static List<Comprador> listaComprador = new ArrayList();
 
+    public Comprador(String cedula, String nombre) {
+        super(cedula, nombre);
+    }
+
     public Comprador(String cedula, String nombre, String apellido1, String apellido2, String clienteID, boolean compradorFrecuente) {
         super(cedula, nombre, apellido1, apellido2);
         this.clienteID = clienteID;

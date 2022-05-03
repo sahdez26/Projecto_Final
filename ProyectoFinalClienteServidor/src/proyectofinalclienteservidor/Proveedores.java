@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author Saul Hernandez
  */
-public class Proveedores implements Interfaz {
+public class Proveedores extends Persona implements Interfaz {
 
     protected String nombreProveedor;
     protected String tipoProducto;

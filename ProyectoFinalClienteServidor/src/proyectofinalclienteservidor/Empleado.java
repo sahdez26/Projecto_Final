@@ -35,27 +35,22 @@ public class Empleado extends Persona implements Interfaz {
 
         try {
             cedula = JOptionPane.showInputDialog(null,
-                    "Digite el numero de cedula del cliente");
+                    "Digite el numero de cedula del empleado");
 
             nombre = JOptionPane.showInputDialog(null,
-                    "Digite el nombre del cliente");
+                    "Digite el nombre del empleado");
 
             apellido1 = JOptionPane.showInputDialog(null,
-                    "Digite el primer apellido del cliente");
+                    "Digite el primer apellido del empleado");
 
             apellido2 = JOptionPane.showInputDialog(null,
-                    "Digite el segundo apellido del cliente");
+                    "Digite el segundo apellido del empleado");
 
             annoIngreso = JOptionPane.showInputDialog(null,
                     "Digite el año de inicio");
             
             idEmpleado = JOptionPane.showInputDialog(null,
                     "Digite un usuario para asignar al empleado");
-
-            String evaluar = JOptionPane.showInputDialog(null,
-                    "Digite: \n"
-                    + "'1' si es cliente frecuente\n"
-                    + "'0' si no es cliente frecuente");
 
 
             listaEmpleado.add(new Empleado(cedula, nombre, apellido1, apellido2,
