@@ -141,7 +141,7 @@ public class ClienteHilo implements Runnable {
 
     }
 
-    public boolean esperarResultado() {
+    public boolean esperarResultado() throws ClassNotFoundException {
         Object objeto;
         try {
             while (!(objeto = conexionEntradaServer.readObject()).getClass().toString().equals("class proyectofinalclienteservidor.Comando")) {
@@ -149,10 +149,8 @@ public class ClienteHilo implements Runnable {
             }
         } catch (IOException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println("exiting while");
+        System.out.println("Transaccion completada");
         return true;
     }
 
