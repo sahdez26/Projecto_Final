@@ -43,10 +43,10 @@ public class Carnes extends Comida implements Interfaz {
                     "Digite la cantidad de kilogramos disponibles");
 
             tipoCarne = JOptionPane.showInputDialog(null,
-                    "Digite el tipo de carne");
+                    "Digite el tipo de carne (Res, Cerdo, Pollo)");
 
             mesVencimiento = Integer.parseInt(JOptionPane.showInputDialog(null,
-                    "Digite el nombre del mes de vencimiento"));
+                    "Digite el numero del mes de vencimiento"));
             
             listaCarnes.add(new Carnes(precio, nombre, cantidadDisponible, tipoCarne,
                     mesVencimiento));

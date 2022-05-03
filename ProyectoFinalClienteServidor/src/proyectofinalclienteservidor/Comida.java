@@ -5,11 +5,13 @@
  */
 package proyectofinalclienteservidor;
 
+
+
 /**
  *
  * @author Saul Hernandez
  */
-public abstract class Comida {
+public  class Comida {
 
     protected int precio;
     protected String nombre;
