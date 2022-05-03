@@ -34,7 +34,7 @@ public class Menu extends Thread {
         try {
             socket = new Socket("localhost", 1234);
             System.out.println(
-                    "Conectado!!");
+                    "¡Conectado con el server!");
 
             conexionSalidaServer = new ObjectOutputStream(socket.getOutputStream());
             conexionEntradaServer = new ObjectInputStream(socket.getInputStream());
